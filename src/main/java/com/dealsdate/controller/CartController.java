@@ -30,9 +30,7 @@ public class CartController {
 	@Autowired
 	CartService cartSer;
 	
-	/**
 	
-	 */
 	@GetMapping("/viewcart/{id}")
 	public Cart viewCart(@PathVariable("id") Integer id) {
 		return cartSer.viewCartById(id);
@@ -47,10 +45,7 @@ public class CartController {
 		return cartSer.addProductToCart(cartId, prodId);
 	}
 	
-	/**
-	 *  http://localhost:8080/addproducttocart/{cartid}/{prodid}
-	 
-	 */
+	
 	@PostMapping("/deleteproductfromcart/{cartid}/{prodid}")
 	public List<Product> deleteProdFromCart(@PathVariable("cartid") Integer cartId, @PathVariable("prodid") Integer prodId) throws ProductNotFoundException {
 		return cartSer.deleteProductFromCart(cartId, prodId);
